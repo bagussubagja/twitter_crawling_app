@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:twitter_crawling_app/screens/about_us_screen.dart';
 import 'package:twitter_crawling_app/screens/result_screen.dart';
 import 'package:twitter_crawling_app/screens/search_screen.dart';
 import 'package:twitter_crawling_app/screens/splash_screen.dart';
-import 'package:twitter_crawling_app/screens/top_trends_screen.dart';
+
 
 class AppRoutes {
   static const String splashScreen = '/splashScreen';
@@ -26,15 +25,15 @@ class AppRoutes {
         return getPage(AboutUsScreen());
       case AppRoutes.splashScreen:
         return getPage(const SplashScreen());
-      case AppRoutes.topTrendsScreen:
-        return getPage(TopTrendsScreen());
       case AppRoutes.searchScreen:
         return getPage(const SearchScreen());
-      case AppRoutes.resultScreen:
-        final query = settings.arguments as String;
-        return getPage(ResultScreen(
-          query: query,
-        ));
+      // case AppRoutes.resultScreen:
+      //   final query = settings.arguments as String;
+      //   final tweetQuantity = settings.arguments as int;
+      //   return getPage(ResultScreen(
+      //     query: query,
+      //     tweetQuantity: tweetQuantity,
+      //   ));
       default:
         return getPage(const Scaffold(
           body: Text("Route Tidak Ada"),

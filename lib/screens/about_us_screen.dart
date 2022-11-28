@@ -99,23 +99,6 @@ class AboutUsScreen extends StatelessWidget {
             ],
           ),
           MarginWidth(width: 2.w),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, AppRoutes.topTrendsScreen);
-            },
-            child: Container(
-              height: 5.h,
-              width: 6.5.h,
-              decoration: BoxDecoration(
-                color: blackColor,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Icon(
-                Icons.arrow_forward_outlined,
-                color: extraLightGray,
-              ),
-            ),
-          )
         ],
       ),
     );

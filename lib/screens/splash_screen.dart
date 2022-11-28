@@ -144,7 +144,8 @@ class SplashScreen extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, AppRoutes.aboutUsScreen);
+            Navigator.pushNamedAndRemoveUntil(
+                context, AppRoutes.searchScreen, (route) => false);
           },
           child: Container(
             alignment: Alignment.center,
