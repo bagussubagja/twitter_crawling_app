@@ -22,6 +22,8 @@ class _SearchScreenState extends State<SearchScreen> {
   final _queryController = TextEditingController();
   final _nameController = TextEditingController();
   final _tweetQuantityController = TextEditingController();
+  bool _isVisible = false;
+  int? values;
   @override
   void initState() {
     // TODO: implement initState
@@ -57,7 +59,15 @@ class _SearchScreenState extends State<SearchScreen> {
                     MarginHeight(height: 3.h),
                     _tweetQuantityTextField(),
                     MarginHeight(height: 3.h),
-                    _button(),
+                    Visibility(
+                      visible: _isVisible,
+                      replacement: Center(
+                        child: CircularProgressIndicator(
+                          color: blackColor,
+                        ),
+                      ),
+                      child: _button(),
+                    ),
                     MarginHeight(height: 3.h),
                     _suggestedItem()
                   ],
@@ -73,7 +83,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget _button() {
     return GestureDetector(
       onTap: () {
-        if ((_queryController.text.isNotEmpty ||
+        if ((_queryController.text.isNotEmpty &&
                 _nameController.text.isNotEmpty) &&
             _tweetQuantityController.text.isNotEmpty) {
           Navigator.push(context, MaterialPageRoute(
@@ -132,7 +142,6 @@ class _SearchScreenState extends State<SearchScreen> {
               onTap: () {
                 setState(() {
                   if (itemName != null) {
-                    print(itemQuery);
                     _queryController.text = itemQuery ?? '';
                     _nameController.text = itemName;
                   }
@@ -240,7 +249,21 @@ class _SearchScreenState extends State<SearchScreen> {
           children: [
             Expanded(
               child: TextFormField(
+                onEditingComplete: () {
+                  if ((_queryController.text.isNotEmpty &&
+                          _nameController.text.isNotEmpty) &&
+                      _tweetQuantityController.text.isNotEmpty) {
+                    if (values! < 101) {
+                      setState(() {
+                        _isVisible = !_isVisible;
+                      });
+                    }
+                  }
+                },
                 onChanged: (value) {
+                  setState(() {
+                    values = int.parse(value);
+                  });
                   if (value.isNotEmpty) {
                     if (int.parse(value) > 100) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -254,7 +277,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 maxLength: 3,
                 style: regularText.copyWith(color: pureWhite, fontSize: 13.sp),
                 textAlign: TextAlign.center,
-                textInputAction: TextInputAction.search,
+                textInputAction: TextInputAction.done,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   border: InputBorder.none,
