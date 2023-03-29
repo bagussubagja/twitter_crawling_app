@@ -4,5 +4,7 @@
 
 Twitter Crawling App is an application that can crawl on Twitter social media. Search for the keywords of your choice and get the latest trends wrapped in a word cloud!
 
+This application was created to fulfill the assignment for the Information Retrieval course
+
 #### Notes
 The .apk file is currently unavailable (as of 03/29/2023)
