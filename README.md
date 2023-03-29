@@ -1,16 +1,8 @@
-# twitter_crawling_app
+# Twitter Crawling App
 
-A new Flutter project.
+![twitter-crawling](https://user-images.githubusercontent.com/74639319/228590460-2da61ee4-7de6-4ea8-8395-5ac3d77a0b97.png)
 
-## Getting Started
+Twitter Crawling App is an application that can crawl on Twitter social media. Search for the keywords of your choice and get the latest trends wrapped in a word cloud!
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Notes
+The .apk file is currently unavailable (as of 03/29/2023)
